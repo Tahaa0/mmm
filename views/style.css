@@ -28,10 +28,10 @@ html{
 	padding-bottom: 33px;
 	font-weight: 600;
 	letter-spacing: 1.5px;
-	background-color: #091B31;
+	background-color: ;
 }
 a{
-	color: #F2F1EC;
+	color: #091B31;
 	text-decoration: inherit;
 	font-size: 18px;
 	display: block;
@@ -67,10 +67,10 @@ a:hover{
 }
 h1{
 	text-align: center;
-	color: #F2F1EC;
+	color: #091B31;
 	font-size: 30px;
 	padding: 0;	
 	padding-bottom: 52px;
 	margin-top: 0;
-	border-bottom: 	1px solid #F2F1EC;
+	border-bottom: 	1px solid #c7c7c7;
 }
