@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@100;200;300;400;500;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;200;300;400;500;600;700;900&display=swap');
+
+body,html{
+	margin: 0;
+	padding: 0;
+	
+}
+html{
+	background: rgb(242,241,236);
+	background: linear-gradient(180deg, rgba(242,241,236,1) 0%, rgba(236,235,233,1) 100%);
+	background-attachment: fixed;
+}
+.wrapper{
+	max-width: 1050px;
+	margin: 0 auto;
+}
+#menu{
+	width: 600px;
+	display: flex;
+	justify-content: space-around;
+	margin: 0 auto;
+	padding-top: 10px;	
+}
+#head{
+	font-family: 'EB Garamond';
+	padding-top: 50px;
+	padding-bottom: 33px;
+	font-weight: 600;
+	letter-spacing: 1.5px;
+	background-color: #091B31;
+}
+a{
+	color: #F2F1EC;
+	text-decoration: inherit;
+	font-size: 18px;
+	display: block;
+}
+a.separator{
+	color: #AAAAAA;
+}
+a.separator:hover{
+	color: #AAAAAA;
+}
+a:hover{
+	color: #000;
+}
+#body{
+	padding-top: 20px;	
+	display: flex;
+}
+.column{
+	width: 33.333%;
+}
+.item>img{
+	display: block;	
+	width: 100%;
+	padding-bottom: 10px;
+}
+.item{
+	padding: 15px;	
+}
+.item .desc{
+	font-family: 'Open Sans';
+	font-size: 12px;
+	color: #000;
+}
+h1{
+	text-align: center;
+	color: #F2F1EC;
+	font-size: 30px;
+	padding: 0;	
+	padding-bottom: 52px;
+	margin-top: 0;
+	border-bottom: 	1px solid #F2F1EC;
+}
