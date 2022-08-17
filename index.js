@@ -30,6 +30,9 @@ app.use(
 app.get('/', (req, res) => {
 	res.render('index.ejs');
 });
+app.get('/gen', (req, res) => {
+	res.render('scenarios.ejs');
+});
 
 app.use('/public',express.static(__dirname + '/public'));
 app.use('/',express.static(__dirname + '/views'));

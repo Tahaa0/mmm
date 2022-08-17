@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>MMM</title>
+	<script
+			  src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous"></script>
+			  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css">
+	<link rel="stylesheet" href="style.css">
+	  <script>
+    $( function() {
+    	var handle = $( "#custom-handle" );
+	    $( "#slider" ).slider({
+	      value:2022,
+	      min: 2020,
+	      max: 2050,
+	      step: 1,
+	      create: function() {
+	        handle.html("<span id='texthandle'>"+$( this ).slider( "value" )+"</span>");
+	      },
+	      slide: function( event, ui ) {
+	        handle.html("<span id='texthandle'>"+ui.value+"</span>");
+	        if(Math.random()>0.3){
+	        	$( "#investment" ).html( "+" + parseInt(2000*333*Math.random()) ).removeClass('red').addClass('green');
+	        }else{
+	        	$( "#investment" ).html( "-" + parseInt(2000*333*Math.random()) ).removeClass('green').addClass('red');
+	        }
+	        
+	      }
+	    });
+	function selectRandomState(){
+		if(Math.random()>0.666){
+			return 'rent';
+		}else{
+			if(Math.random()>0.5){
+				return 'live';
+			}else{
+				return 'sell';
+			}
+		}
+	}
+	function regenerate(){
+		$('.scenario').html('');
+		$('.scenario').each(function(e){
+			$(this).append('<div class="'+selectRandomState()+'""></div>');
+			$(this).append('<div class="'+selectRandomState()+'""></div>');
+			$(this).append('<div class="'+selectRandomState()+'""></div>');
+		});
+	}
+	
+	$('.scenario').click(function(e){
+		$('.scenario').removeClass('selected');
+		$(this).addClass('selected');
+		if(Math.random()>0.3){
+        	$( "#investment" ).html( "+" + parseInt(2000*333*Math.random()) ).removeClass('red').addClass('green');
+        }else{
+        	$( "#investment" ).html( "-" + parseInt(2000*333*Math.random()) ).removeClass('green').addClass('red');
+        }
+	});
+	regenerate();
+	$('#regenerate').click(regenerate);
+    } );
+  </script>
+  <style>
+  	*{
+  		font-family: 'Montserrat';
+  	}
+  	#main{
+  		height: 450px;
+  		display: flex;
+  		flex-direction: column;
+  		justify-content: space-around;
+  		margin-bottom: 50px;
+  		margin-top: 40px;
+  	}
+  	#container{
+  		padding-bottom: 80px;
+  	}
+  	#slider.ui-slider{
+  		border: 0;
+  		background-color: #A5AAB4;
+  		height: 6px;
+  	}
+  	#slider>.ui-slider-handle{
+  		border: 0;
+  		background: #444;
+  		width: 9px;
+  		height: 36px;
+  		top:-13.5px;
+  		border-radius: 0;
+  	}
+  	#texthandle{
+  		display: block;
+  		margin-top: -27px;
+		margin-left: -21px;
+		width: 55.5px;
+		text-align: center;
+  	}
+  	#investment{
+  		font-family: 'Montserrat';
+  		font-size: 30px;
+  		text-align: center;
+  		font-weight: 400;
+  		
+  		width: 250px;
+  		border-radius: 6px;
+  		margin: 0 auto;
+  		margin-top: 30px;
+  		padding-top: 5px;
+  		padding-bottom: 5px;
+  	}
+  	#investment.green{
+  		color: #11B3A8;
+  		background-color: rgb(17, 179, 168,0.13);
+  	}
+  	#investment.red{
+  		color: #F17D70;
+  		background-color: rgb(241, 125, 112, 0.13)
+  	}
+  	.row{
+  		display: flex;
+  		justify-content: space-around;
+  		width: 500px;
+  		margin: 0 auto;
+  	}
+  	.scenario{
+  		background-color: rgb(0,0,0,0.5);
+  		border-radius: 100%;
+  		height: 50px;
+  		width: 50px;
+  		display: flex;
+  		flex-direction: column;
+  		justify-content: center;
+  		align-items: center;
+  		cursor: pointer;
+  	}
+  	.scenario:hover{
+  		background-color: rgb(0,0,0,0.65);
+  	}
+  	.scenario>div{
+  		width: 24px;
+  		height: 8px;
+  		background-color: white;	
+  	}
+  	.scenario>div.rent{
+  		background-color: #8EC5F0;
+  	}
+  	.scenario>div.live{
+  		background-color: #DFEB98;
+  	}
+  	.scenario>div.sell{
+  		background-color: #E578A9;
+  	}
+  	.scenario.selected{
+  		background-color: rgb(00,00,0,0.75);
+  	}
+  	#regenerate{
+  		width: 200px;
+  		background-color: #303234;
+  		color: #FFF;
+  		border-radius: 6px;
+  		padding-top: 9px;
+  		padding-bottom: 9px;
+  		text-align: center;
+  		cursor: pointer;
+  	}
+  </style>
+</head>
+<body>
+	<div id="container" class="wrapper">
+		<div id="main">
+			<div class="row">
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+			</div>
+			<div class="row">
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+			</div>
+			<div class="row">
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+			</div>
+			<div class="row">
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+			</div>
+			<div class="row">
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+			</div>
+			<div class="row">
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+			</div>
+			<div class="row">
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+				<div class="scenario"></div>
+			</div>
+		
+	</div>
+	<div id="slider">
+  			<div id="custom-handle" class="ui-slider-handle"></div>
+		</div>
+		<div id="investment" class="green">+121203</div>
+		<div id="regenerate">Regenerate</div>
+<script></script>
+</body>
+</html>
