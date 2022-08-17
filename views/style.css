@@ -6,6 +6,9 @@ body,html{
 	padding: 0;
 	
 }
+*{
+	font-family: 'Montserrat';
+}
 html{
 	background: rgb(242,241,236);
 	background: linear-gradient(180deg, rgba(242,241,236,1) 0%, rgba(236,235,233,1) 100%);
@@ -23,7 +26,7 @@ html{
 	padding-top: 10px;	
 }
 #head{
-	font-family: 'EB Garamond';
+	font-family: 'Montserrat';
 	padding-top: 50px;
 	padding-bottom: 33px;
 	font-weight: 600;
@@ -61,7 +64,7 @@ a:hover{
 	padding: 15px;	
 }
 .item .desc{
-	font-family: 'Open Sans';
+	font-family: 'Montserrat';
 	font-size: 12px;
 	color: #000;
 }
