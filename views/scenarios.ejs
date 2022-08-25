@@ -76,6 +76,8 @@
   		justify-content: space-around;
   		margin-bottom: 50px;
   		margin-top: 40px;
+  		text-align: center;
+  		color: #666;
   	}
   	#container{
   		padding-bottom: 80px;
@@ -146,13 +148,13 @@
   		height: 8px;
   		background-color: white;	
   	}
-  	.scenario>div.rent{
+  	div.rent{
   		background-color: #8EC5F0;
   	}
-  	.scenario>div.live{
+  	div.live{
   		background-color: #DFEB98;
   	}
-  	.scenario>div.sell{
+  	div.sell{
   		background-color: #E578A9;
   	}
   	.scenario.selected{
@@ -160,20 +162,67 @@
   	}
   	#regenerate{
   		width: 200px;
+  		margin-top: -50px;
+  		
+  		cursor: pointer;
+  	}
+  	.color{
+  		display: flex;
+  		align-items: center;
+  		margin-top: 4px;	
+  		margin-bottom: 4px;
+  	}
+  	.colorbox{
+  		width: 30px;
+  		height: 30px;
+  		border: 2px solid #666;
+  	}
+  	.color>.text{
+  		margin-left: 10px;	
+  	}
+  	#colors{
+  		margin-bottom: -200px;
+  		margin-top: 100px;		
+  	}
+  	#back{
+  		margin-top: 20px;
+  		width: 120px;
   		background-color: #303234;
-  		color: #FFF;
+  		color: #FFF !important	;
   		border-radius: 6px;
   		padding-top: 9px;
   		padding-bottom: 9px;
   		text-align: center;
   		cursor: pointer;
+  		font-size: 16px;
+  		margin-bottom: -40px;
+  		margin-left: 20px;		
+  	}
+  	#back>a{
+  		color: #FFF !important	;
   	}
   </style>
 </head>
 <body>
+	<a href="/"><div id="back">Back</div></a>
 	<div id="container" class="wrapper">
+
+		<div id="colors">
+			<div class="color">	
+				<div class="colorbox live"></div>
+				<div class="text">Live</div>
+			</div>
+			<div class="color">	
+				<div class="colorbox rent"></div>
+				<div class="text">Rent</div>
+			</div>
+			<div class="color">	
+				<div class="colorbox sell"></div>
+				<div class="text">Sell</div>
+			</div>
+		</div>
 		<div id="main">
-			<div class="row">
+			<!--<div class="row">
 				<div class="scenario"></div>
 				<div class="scenario"></div>
 				<div class="scenario"></div>
@@ -235,14 +284,15 @@
 				<div class="scenario"></div>
 				<div class="scenario"></div>
 				<div class="scenario"></div>
-			</div>
-		
+			</div>-->
+			3JS Model
 	</div>
 	<div id="slider">
   			<div id="custom-handle" class="ui-slider-handle"></div>
 		</div>
 		<div id="investment" class="green">+121203</div>
-		<div id="regenerate">Randomize</div>
+		<div id="regenerate">Years of investment</div>
+		
 <script></script>
 </body>
 </html>
